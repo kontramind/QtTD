@@ -3,22 +3,29 @@
 #define QTTDCONTEXT_H
 
 #include <QObject>
+#include <QMutex>
+#include <QUrl>
+
+#include "qttd.h"
+
+// Forward declaration
+class QtTD;
 
 class QtTDContext : public QObject
 {
 public:
-    QtTDContext();
+    QtTDContext(QtTD* app);
 
     void payInterest();
 
 private:
+    QtTD *qttd;
     QString levelTitle;
-    QString levelInfo = "";
-    QString backgroundImage = "images/sunset.jpg";
+    QString levelInfo;
+    QString backgroundImage;
     QMutex PaintingLock;
     QMutex gameTimeLock;
     int gameTime;
-    //HexTD mainApp;
     QString VERSION;
     //BlackBox blackBoxCurrent;
     QUrl contextUrl;
@@ -39,20 +46,20 @@ private:
     QString mapMD5;
     //EnemySprite[] enemies;
     //QVector<Tower> towers;
-    int enemyCount = 0;
+    int enemyCount;
     //Vector<Path> paths;
-    int wave = 0;
+    int wave;
     //Vector<Wave> waves;
-    bool waveActive = false;
-    int lives = 20;
-    int livesStart = 20;
-    long credits = 0;
-    long creditsStart = 0;
-    int interestStart = 3;
-    int interestIncrease = 3;
-    int bonus = 0;
-    int bonusWait = 0;
-    long score = 0;
+    bool waveActive;
+    int lives;
+    int livesStart;
+    long credits;
+    long creditsStart;
+    int interestStart;
+    int interestIncrease;
+    int bonus;
+    int bonusWait;
+    long score;
     //Vector<ContextListener> contextListeners;
     //Vector<TowerListener> towerListeners;
     //Vector<WaveStartListener> waveListeners;

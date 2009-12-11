@@ -2,8 +2,10 @@
 #define QTTDGAMEBOARD_H
 
 #include <QGraphicsScene>
-#include "qttd.h"
-#include "qttdcontext.h"
+
+//Forward declarations
+class QtTD;
+class QtTDContext;
 
 class QtTDGameBoard : public QGraphicsScene
 {
@@ -11,8 +13,8 @@ public:
     QtTDGameBoard();
 
 private:
-    QtTD game;
-    QtTDContext context;
+    QtTD* game;
+    QtTDContext* context;
     qreal offsetX, offsetY;
 };
 
