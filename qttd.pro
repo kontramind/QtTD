@@ -8,8 +8,10 @@ SOURCES += main.cpp \
     qttd.cpp \
     qttdsprite.cpp \
     qttdpath.cpp \
-    qttdcontext.cpp
+    qttdcontext.cpp \
+    qttdgameboard.cpp
 HEADERS += qttd.h \
     qttdsprite.h \
     qttdpath.h \
-    qttdcontext.h
+    qttdcontext.h \
+    qttdgameboard.h
