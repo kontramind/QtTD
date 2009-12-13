@@ -9,9 +9,13 @@ SOURCES += main.cpp \
     qttdsprite.cpp \
     qttdpath.cpp \
     qttdcontext.cpp \
-    qttdgameboard.cpp
+    qttdgameboard.cpp \
+    qttdhex.cpp \
+    qttdcolorselection.cpp
 HEADERS += qttd.h \
     qttdsprite.h \
     qttdpath.h \
     qttdcontext.h \
-    qttdgameboard.h
+    qttdgameboard.h \
+    qttdhex.h \
+    qttdcolorselection.h

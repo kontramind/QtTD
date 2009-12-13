@@ -83,6 +83,13 @@ public:
     //images
     void clearImages();
 
+    inline qreal getOffsetX() {
+        return offsetX;
+    }
+
+    inline qreal getOffsetY() {
+        return offsetY;
+    }
 private:
     QtTD *qttd;
     QString levelTitle;

@@ -10,11 +10,14 @@ class QtTDContext;
 class QtTDGameBoard : public QGraphicsScene
 {
 public:
-    QtTDGameBoard();
+    QtTDGameBoard(QtTD* game, QtTDContext* context);
+
+    void paint();
+    QVector<int> hexCoordsFromScreenCoords(int screenx, int screeny);
 
 private:
-    QtTD* game;
-    QtTDContext* context;
+    QtTD* myGame;
+    QtTDContext* myContext;
     qreal offsetX, offsetY;
 };
 
