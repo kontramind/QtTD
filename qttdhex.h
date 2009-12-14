@@ -4,6 +4,7 @@
 #include <QChar>
 #include <QVector>
 #include <QColor>
+#include <QGraphicsEllipseItem>
 
 // Forward declaration
 class QtTDContext;
@@ -73,7 +74,7 @@ protected:
     QtTDContext *context;
     highlightType highlight;// = highlightType.none;
     qreal highlightRange; //=0;
-    //Shape rangeCircle;
+    QGraphicsEllipseItem rangeCircle;
 
     bool free; // = true;
     QtTDTower *tower; //= 0;

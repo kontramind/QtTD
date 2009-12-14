@@ -9,6 +9,7 @@
 #include <QUrl>
 
 #include "qttd.h"
+#include "qttdcolorselection.h"
 
 //Forward declarations
 class QtTD;
@@ -90,6 +91,11 @@ public:
     inline qreal getOffsetY() {
         return offsetY;
     }
+
+    inline QtTDColorSelection Colors() {
+        return colors;\
+    }
+
 private:
     QtTD *qttd;
     QString levelTitle;
@@ -102,7 +108,7 @@ private:
     //BlackBox blackBoxCurrent;
     QUrl contextUrl;
     QUrl mapContextUrl;
-    //colorSelection colors;
+    QtTDColorSelection colors;
     //Hex[][] grid;
     int gridWidth;
     int gridHeight;

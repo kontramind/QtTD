@@ -1,29 +1,30 @@
 #include "qttdhex.h"
 #include "qttdcontext.h"
+#include "qttdcolorselection.h"
 
 int QtTDHex::BASE  = 1;
 int QtTDHex::EMPTY = 2;
 int QtTDHex::PATH  = 3;
 
-QtTDHex::QtTDHex(int _x, int _y, QtTDContext *_context, bool buildable) {
+QtTDHex::QtTDHex(int _x, int _y, QtTDContext *_context, bool _buildable) {
     QColor tempColor;
     // even or odd
     x = _x;
     y = _y;
     context = context;
-    //borderColor = context.colors.getColorBaseHexBorder();
+    borderColor = context->Colors().getColorBaseHexBorder();
 
-    //tempColor  = context.colors.getColorBaseHexBackGround();
-    //this.fillColor = new Color(tempColor.getRed(), tempColor.getGreen(), tempColor.getBlue(), 125);
-    //this.borderEmptyColor = this.context.colors.getColorBaseEmptyHexBorder();
-    //tempColor = this.context.colors.getColorHighlightOK();
-    //this.highlightOK = new Color(tempColor.getRed(), tempColor.getGreen(), tempColor.getBlue(), 125);
-    //tempColor = this.context.colors.getColorHighlightNOK();
-    //this.highlightNOK = new Color(tempColor.getRed(), tempColor.getGreen(), tempColor.getBlue(), 125);
-    //this.rangeColor = this.context.colors.getColorRangeCircle();
-    //this.type = Hex.BASE;
-    //this.shortName = 'b';
-    //this.free = buildable;
+    tempColor  = context->Colors().getColorBaseHexBackGround();
+    fillColor = QColor(tempColor.red(), tempColor.green(), tempColor.blue(), 125);
+    borderEmptyColor = context->Colors().getColorBaseEmptyHexBorder();
+    tempColor = context->Colors().getColorHighlightOK();
+    highlightOK = QColor(tempColor.red(), tempColor.green(), tempColor.blue(), 125);
+    tempColor = context->Colors().getColorHighlightNOK();
+    highlightNOK = QColor(tempColor.red(), tempColor.green(), tempColor.blue(), 125);
+    rangeColor = context->Colors().getColorRangeCircle();
+    type = QtTDHex::BASE;
+    shortName = 'b';
+    free = _buildable;
 }
 
 void QtTDHex::setLocation(int _x, int _y) {
@@ -78,7 +79,13 @@ void QtTDHex::setHighlightRange(qreal range) {
     qreal paintRange = highlightRange * paintScale;
     qreal xPaint = context->getOffsetX() + xQReal * paintScale;
     qreal yPaint = context->getOffsetY() + yQReal * paintScale;
-    //rangeCircle = new Ellipse2D.Float(xPaint-paintRange, yPaint-paintRange, paintRange*2, paintRange*2);
+//    rangeCircle(xPaint-paintRange, yPaint-paintRange,
+//                paintRange*2, paintRange*2,
+//                static_cast<QGraphicsItem * >(0), static_cast<QGraphicsScene * >(0));
+
+    QGraphicsEllipseItem *ptr = new QGraphicsEllipseItem(xPaint-paintRange, yPaint-paintRange,
+                     paintRange*2, paintRange*2,
+                     static_cast<QGraphicsItem * >(0), static_cast<QGraphicsScene * >(0));
 }
 
 //public void resetScale() {
