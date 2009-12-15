@@ -10,7 +10,7 @@ class QtTDContext;
 class QtTDGameBoard : public QGraphicsScene
 {
 public:
-    QtTDGameBoard(QtTD* game, QtTDContext* context);
+    QtTDGameBoard(QObject *parent, QtTD* game, QtTDContext* context);
 
     void paint();
     QVector<int> hexCoordsFromScreenCoords(int screenx, int screeny);

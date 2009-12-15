@@ -1,7 +1,7 @@
 #include "qttdgameboard.h"
 
-QtTDGameBoard::QtTDGameBoard(QtTD* game, QtTDContext* context)
-    : myGame(game), myContext(context)
+QtTDGameBoard::QtTDGameBoard(QObject *parent, QtTD* game, QtTDContext* context)
+    : QGraphicsScene(parent), myGame(game), myContext(context)
 {
 }
 

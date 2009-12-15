@@ -7,6 +7,7 @@
 #include <QVector>
 #include <QTextStream>
 #include <QUrl>
+#include <QHash>
 
 #include "qttd.h"
 #include "qttdcolorselection.h"
@@ -82,6 +83,7 @@ public:
     void setWaveActive(bool wActive);
 
     //images
+    QImage loadImage(QString location);
     void clearImages();
 
     inline qreal getOffsetX() {
@@ -144,7 +146,7 @@ private:
     //SVGUniverse svgUniverse;
     //Hashtable<String, URI> svgImages;
     //Hashtable<String, StyleSheet> styleSheets;
-    //Hashtable<String, BufferedImage> images;
+    QHash<QString, QImage> images;
     //Cache cache;
 };
 

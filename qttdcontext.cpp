@@ -420,31 +420,22 @@ void QtTDContext::showAlert(QString alert) {
 //        }
 //}
 
- void QtTDContext::clearImages() {
-    //images.clear();
+void QtTDContext::clearImages() {
+    images.clear();
 }
 
-// BufferedImage loadImage(String location) {
-//        if (images.containsKey(location)) {
-//                return images.get(location);
-//        } else {
-//                BufferedImage i = null;
-//                URL u;
-//                try {
-//                        u = new URL(contextUrl, location);
-//                        i = ImageIO.read(u);
-//                } catch (MalformedURLException ex) {
-//                        System.out.println("Context::loadImage: MalformedURLException reading location: " + location);
-//                } catch (IOException ex) {
-//                        System.out.println("Context::loadImage: IOException reading location: " + location);
-//                }
-//                if (i == null) {
-//                        i = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
-//                }
-//                images.put(location, i);
-//                return i;
-//        }
-//}
+ QImage QtTDContext::loadImage(QString location) {
+    if (images.contains(location)) {
+       return images.value(location);
+    } else {
+        QImage image(location);
+        if (image.isNull()) {
+            image = QImage(1, 1,QImage::Format_RGB32);
+        }
+        images.insert(location, image);
+        return image;
+    }
+}
 //
 // URI loadSvg(String name, String location) {
 //        if (svgUniverse == null) {
