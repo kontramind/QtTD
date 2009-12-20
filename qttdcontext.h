@@ -10,6 +10,7 @@
 #include <QHash>
 
 #include "qttd.h"
+#include "qttdhex.h"
 #include "qttdcolorselection.h"
 
 //Forward declarations
@@ -98,6 +99,14 @@ public:
         return colors;\
     }
 
+    inline QString getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    inline QVector<QVector<QtTDHex> > getGrid() {
+        return grid;
+    }
+
 private:
     QtTD *qttd;
     QString levelTitle;
@@ -111,7 +120,7 @@ private:
     QUrl contextUrl;
     QUrl mapContextUrl;
     QtTDColorSelection colors;
-    //Hex[][] grid;
+    QVector<QVector<QtTDHex> > grid;
     int gridWidth;
     int gridHeight;
     qreal offsetX;
@@ -127,7 +136,7 @@ private:
     //EnemySprite[] enemies;
     //QVector<Tower> towers;
     int enemyCount;
-    //Vector<Path> paths;
+    //QVector<QtTDPath> paths;
     int wave;
     QVector<QtTDWave *> waves;
     bool waveActive;
