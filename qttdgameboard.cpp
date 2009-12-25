@@ -1,9 +1,7 @@
 #include "qttdgameboard.h"
 
 QtTDGameBoard::QtTDGameBoard(QObject *parent, QtTD* game, QtTDContext* context)
-    : QGraphicsScene(parent), myGame(game), myContext(context), backgroundDefault("images/sunset.jpg"),
-      clearLayer0(true), clearLayer1(true), drawBackground(true), placingTowerRange(0),
-      graceTicks(0), graceTicksMax(5), paintTime(0), painting(false)
+    : QGraphicsScene(parent), myGame(game), myContext(context)
 {
 }
 

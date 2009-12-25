@@ -10,13 +10,13 @@
 #include <QHash>
 
 #include "qttd.h"
-#include "qttdhex.h"
 #include "qttdcolorselection.h"
 
 //Forward declarations
 class QtTD;
 class QtTDTower;
 class QtTDWave;
+class QtTDHex;
 
 class QtTDContext : public QObject
 {
@@ -103,7 +103,7 @@ public:
         return backgroundImage;
     }
 
-    inline QVector<QVector<QtTDHex> > getGrid() {
+    inline QVector<QVector<QtTDHex* > > getGrid() {
         return grid;
     }
 
@@ -120,7 +120,7 @@ private:
     QUrl contextUrl;
     QUrl mapContextUrl;
     QtTDColorSelection colors;
-    QVector<QVector<QtTDHex> > grid;
+    QVector<QVector<QtTDHex* > > grid;
     int gridWidth;
     int gridHeight;
     qreal offsetX;

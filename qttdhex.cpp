@@ -2,6 +2,8 @@
 #include "qttdcontext.h"
 #include "qttdcolorselection.h"
 
+#include <QtGui/QGraphicsEllipseItem>
+
 int QtTDHex::BASE  = 1;
 int QtTDHex::EMPTY = 2;
 int QtTDHex::PATH  = 3;
@@ -83,9 +85,11 @@ void QtTDHex::setHighlightRange(qreal range) {
 //                paintRange*2, paintRange*2,
 //                static_cast<QGraphicsItem * >(0), static_cast<QGraphicsScene * >(0));
 
-    QGraphicsEllipseItem *ptr = new QGraphicsEllipseItem(xPaint-paintRange, yPaint-paintRange,
-                     paintRange*2, paintRange*2,
-                     static_cast<QGraphicsItem * >(0), static_cast<QGraphicsScene * >(0));
+    QGraphicsEllipseItem *ptr =
+            new QGraphicsEllipseItem(xPaint-paintRange, yPaint-paintRange,
+                                     paintRange * 2, paintRange * 2,
+                                     static_cast<QGraphicsItem* >(0),
+                                     static_cast<QGraphicsScene* >(0));
 }
 
 //public void resetScale() {

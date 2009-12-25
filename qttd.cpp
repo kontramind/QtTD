@@ -6,7 +6,10 @@
 #include <QtGui/QGraphicsPixmapItem>
 
 QtTD::QtTD(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), backgroundDefault("images/sunset.jpg"),
+      clearLayer0(true), clearLayer1(true), drawBackground(true),
+      placingTowerRange(0), graceTicks(0), graceTicksMax(5),
+      paintTime(0), painting(false)
 {
 //    createActions();
 //    createToolBox();
