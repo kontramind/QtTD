@@ -11,11 +11,13 @@ SOURCES += main.cpp \
     qttdcontext.cpp \
     qttdgameboard.cpp \
     qttdhex.cpp \
-    qttdcolorselection.cpp
+    qttdcolorselection.cpp \
+    qttdgeometry.cpp
 HEADERS += qttd.h \
     qttdsprite.h \
     qttdpath.h \
     qttdcontext.h \
     qttdgameboard.h \
     qttdhex.h \
-    qttdcolorselection.h
+    qttdcolorselection.h \
+    qttdgeometry.h
