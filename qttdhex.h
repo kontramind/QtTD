@@ -8,6 +8,9 @@
 // Forward declaration
 class QtTDContext;
 class QtTDTower;
+class QPainterPath;
+class QGraphicsScene;
+class QGraphicsPathItem;
 class QGraphicsEllipseItem;
 
 class QtTDHex
@@ -60,7 +63,8 @@ protected:
 
     //private qreal[][] points;
 
-    //GeneralPath polyHex;
+    QGraphicsPathItem *polyHex;
+    QPainterPath      *polyHexPath;
     //Stroke stroke1;
     //Stroke stroke2;
     //Shape[] bordersE;
@@ -85,7 +89,9 @@ class QtTDHexEmpty : public QtTDHex
 public:
     QtTDHexEmpty(int _x, int _y, QtTDContext* _context);
 
-    //inline void paintBase(Graphics2D g2_0, Graphics2D g2_1) { }
+    inline void paintBase(QGraphicsScene *scene) { }
+
+    void paintEffects(QGraphicsScene *scene);
 };
 
 class QtTDHexPath : public QtTDHex
