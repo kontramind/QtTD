@@ -90,6 +90,7 @@ void QtTDHex::setHighlightRange(qreal range) {
                                      paintRange * 2, paintRange * 2,
                                      static_cast<QGraphicsItem* >(0),
                                      static_cast<QGraphicsScene* >(0));
+    Q_UNUSED(ptr);
 }
 
 //public void resetScale() {
@@ -219,34 +220,37 @@ bool QtTDHex::isFree() {
 QtTDHexEmpty::QtTDHexEmpty(int _x, int _y, QtTDContext* _context)
     : QtTDHex(_x, _y, _context, false)
 {
-    borderColor;// = context.colors.getColorBaseEmptyHexBorder();
-    fillColor;// = context.colors.getColorOpenBackGround();
+    Q_UNUSED(borderColor);// = context.colors.getColorBaseEmptyHexBorder();
+    Q_UNUSED(fillColor);// = context.colors.getColorOpenBackGround();
     type = QtTDHex::EMPTY;
     shortName = 'n';
 }
 
-//void QtTDHexEmpty::paintEffects(Graphics2D g2) {
-//    switch (this.highlight) {
-//        case placeTower:
-//            g2.setColor(this.highlightNOK);
-//            g2.fill(this.polyHex);
-//            this.paintRangeCircle(g2);
-//            break;
-//        case editHex:
-//            g2.setColor(this.highlightOK);
-//            g2.fill(this.polyHex);
-//            break;
-//        default:
-//    }
-//}
+void QtTDHexEmpty::paintEffects(QGraphicsScene *scene) {
+    switch (highlight) {
+        case placeTower:
+
+////            g2.setColor(this.highlightNOK);
+////            g2.fill(this.polyHex);
+////            this.paintRangeCircle(g2);
+            break;
+        case editHex:
+////            g2.setColor(this.highlightOK);
+////            g2.fill(this.polyHex);
+            break;
+        default:
+            /* do nothing */
+            break;
+    }
+}
 
 // ************************************************************************************ //
 QtTDHexPath::QtTDHexPath(int _x, int _y, QtTDContext* _context)
     : QtTDHex(_x, _y, _context, false)
 {
 
-    borderColor;// = context.colors.getColorBaseEmptyHexBorder();
-    fillColor; //= this.context.colors.getColorOpenBackGround();
+    Q_UNUSED(borderColor);// = context.colors.getColorBaseEmptyHexBorder();
+    Q_UNUSED(fillColor); //= this.context.colors.getColorOpenBackGround();
     type = QtTDHex::PATH;
     shortName = 'p';
 }
