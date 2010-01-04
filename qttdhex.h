@@ -4,6 +4,7 @@
 #include <QChar>
 #include <QVector>
 #include <QColor>
+#include <QGraphicsItem>
 
 // Forward declaration
 class QtTDContext;
@@ -13,7 +14,7 @@ class QGraphicsScene;
 class QGraphicsPathItem;
 class QGraphicsEllipseItem;
 
-class QtTDHex
+class QtTDHex : public QGraphicsItem
 {
 public:
     static int BASE;
